@@ -156,16 +156,6 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
-  },
   { 'akinsho/toggleterm.nvim', version = '*' },
   { 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons' },
 
@@ -294,8 +284,6 @@ require('lazy').setup({
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
 
-      local pickers = require 'telescopePickers'
-
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -315,6 +303,7 @@ require('lazy').setup({
 
           -- Find references for the word under your cursor.
           --map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          local pickers = require 'telescopePickers'
           map('gr', function()
             pickers.prettyLspReferences()
           end, '[G]oto [R]eferences')
