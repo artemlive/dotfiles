@@ -25,6 +25,8 @@ return {
     'leoluz/nvim-dap-go',
   },
   config = function()
+    vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })
     local dap = require 'dap'
     local dapui = require 'dapui'
 
@@ -85,6 +87,6 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
-    require('dap-go').setup(
+    require('dap-go').setup()
   end,
 }
