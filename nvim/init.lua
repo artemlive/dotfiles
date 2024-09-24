@@ -486,3 +486,10 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Abbreviations
+vim.cmd "ca cln '<, '>"
+vim.cmd "ca sr '<,'>s/from/to/g"
+vim.cmd "ca cmd '<, '>!"
+vim.cmd "ca jq '<, '>!jq ."
+vim.cmd "ca norm '<, '> norm"

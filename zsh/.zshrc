@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_CONTEXT/$ZSH_KUBECTL_NAMESPACE)%{$reset_color%}'
+#RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_CONTEXT/$ZSH_KUBECTL_NAMESPACE)%{$reset_color%}'
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -114,3 +114,5 @@ RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 export GOROOT=/usr/local/go
 export GOPATH=~/go
 export PATH=$PATH:~/ops/google-cloud-sdk/bin:$GOPATH/bin:/usr/local/kubebuilder/bin:/usr/local/go/bin
+
+export PATH="/usr/local/bin/bin:$PATH"
