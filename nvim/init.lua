@@ -489,7 +489,7 @@ require('lazy').setup({
 
 -- Abbreviations
 vim.cmd "ca cln '<, '>"
-vim.cmd "ca sr '%s/from/to/g"
+vim.cmd 'ca sr %s/from/to/g'
 vim.cmd "ca cmd '<, '>!"
 vim.cmd "ca jq '<, '>!jq ."
 vim.cmd "ca norm '<, '> norm"
