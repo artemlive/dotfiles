@@ -133,7 +133,6 @@ echo $ZSH_KUBECTL_PROMPT
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH=$PATH:~/ops/google-cloud-sdk/bin:$GOPATH/bin:/usr/local/kubebuilder/bin:/usr/local/go/bin
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ssh="TERM=xterm-256color $(which ssh)"
 export PATH=$PATH:~/ops/google-cloud-sdk/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/kubebuilder/bin:/usr/local/go/bin
