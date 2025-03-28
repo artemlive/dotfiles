@@ -2,6 +2,26 @@
 #RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_CONTEXT/$ZSH_KUBECTL_NAMESPACE)%{$reset_color%}'
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
+flowschema_sa() {
+kubectl get po --v=8 --as system:serviceaccount:kube-system:${1}  2>&1 | grep -i x-kubernetes-pf
+}
+
+flowschemas(){
+kubectl get flowschemas -o custom-columns="uid:{metadata.uid},name:{metadata.name}"
+}
+priorities(){
+kubectl get prioritylevelconfiguration -o custom-columns="uid:{metadata.uid},name:{metadata.name}"
+}
+
+dump_api(){
+kubectl get --raw "/debug/api_priority_and_fairness/dump_requests?includeRequestDetails=1"
+}
+
+dump_pr(){
+kubectl get --raw "/debug/api_priority_and_fairness/dump_priority_levels"
+}
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -116,3 +136,9 @@ export GOPATH=~/go
 export PATH=$PATH:~/ops/google-cloud-sdk/bin:$GOPATH/bin:/usr/local/kubebuilder/bin:/usr/local/go/bin
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ssh="TERM=xterm-256color $(which ssh)"
+export PATH=$PATH:~/ops/google-cloud-sdk/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/kubebuilder/bin:/usr/local/go/bin
+
+export PATH="/usr/local/bin/bin:$PATH"
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+ source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
